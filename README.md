@@ -1,4 +1,4 @@
-![Particles](./src/media/particles.png)
+
 
 ## First-time Setup
 
