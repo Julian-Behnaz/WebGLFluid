@@ -1,4 +1,5 @@
-
+![picture](./src/media/01.png)
+![Vid](./src/media/01.gif)
 
 ## First-time Setup
 

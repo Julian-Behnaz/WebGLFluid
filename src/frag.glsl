@@ -45,8 +45,9 @@ void main() {
   vec2 tx = (v_texCoord-vec2(0.5,0.5))*2.0;
   // pos = tx + sin(tl*2.5 + (u_time*0.001))*0.1;
 
-  float theta = /* u_time*0.001+ */ v_texCoord.x* v_texCoord.x+ v_texCoord.y*v_texCoord.x*20.0;
-  vec2 vel = mat2(cos(theta), -sin(theta), sin(theta), cos(theta)) * vec2(1.0,0);
+  // float theta = /* u_time*0.001+ */ v_texCoord.x* v_texCoord.x+ v_texCoord.y*v_texCoord.x*20.0;
+  // vec2 vel = mat2(cos(theta), -sin(theta), sin(theta), cos(theta)) * vec2(1.0,0);
+  vec2 vel= vec2(sin(2.0*3.14159* v_texCoord.y+5.3+u_time*0.001), sin(2.0*3.14159* v_texCoord.x+u_time*0.001));
   // vec2 vel = vec2(sin(u_time*0.01), sin(u_time*0.01));
   
   outColor = vec4(encode(vel.x), encode(vel.y));

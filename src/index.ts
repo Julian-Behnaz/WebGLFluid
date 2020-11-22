@@ -9,7 +9,7 @@ stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
 stats.dom.style.left = "auto";
 stats.dom.style.right = "0";
 stats.dom.style.top = "50px";
-document.body.appendChild(stats.dom);
+// document.body.appendChild(stats.dom);
 
 const canvas = document.querySelector("#main") as HTMLCanvasElement;
 
@@ -280,7 +280,7 @@ function drawNow(time: number) {
             // gl.drawElements(primitiveType, count, indexType, offset);
             // gl.drawArraysInstanced(gl.TRIANGLES,/* offset */0, /* verts per instance */3, /* instances */numTriangles);
             // gl.drawElementsInstanced(gl.TRIANGLES, count, indexType, 0, 255*255);
-            gl.drawArraysInstanced(gl.TRIANGLES, 0, count, 20*20);
+            gl.drawArraysInstanced(gl.TRIANGLES, 0, count, 255*255);
 
             // gl.drawArraysInstanced(gl.TRIANGLES,
             //     /* offset */0,

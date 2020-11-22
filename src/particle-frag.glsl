@@ -13,5 +13,5 @@ void main() {
   // vec2 tx = (v_texCoord-vec2(0.5,0.5))*2.0;
   // float tl = length(tx);
   // outColor = vec4(1,0,1,1)*tl*0.5;
-  outColor = vec4(1,0,0,1);
+  outColor = vec4(1,1,1,1);
 }

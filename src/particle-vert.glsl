@@ -23,8 +23,8 @@ float decode(vec2 channels) {
 
 void main() {
 
-  int width= 20;
-  int height= 20;
+  int width= 40;
+  int height= 40;
   int yIndex= gl_InstanceID/width;
   int xIndex= gl_InstanceID-yIndex*width;
   float x= float(xIndex)/float(width);
