@@ -7,5 +7,5 @@
 npm install
 ```
 
-
-### https://webgl2fundamentals.org/webgl/lessons/webgl-instanced-drawing.html
+Inspired by Jamie Wong
+### http://jamie-wong.com/2016/08/05/webgl-fluid-simulation/
