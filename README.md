@@ -1,5 +1,5 @@
 
-![picture](01.png)
+![picture](src/../01.png)
 
 ## First-time Setup
 
