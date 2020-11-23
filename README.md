@@ -1,5 +1,5 @@
-![picture](./src/media/01.png)
-![Vid](./src/media/01.gif)
+
+![Vid](./src/media/WavingGrass.gif)
 
 ## First-time Setup
 
@@ -8,4 +8,3 @@ npm install
 ```
 
 
-### https://webgl2fundamentals.org/webgl/lessons/webgl-instanced-drawing.html
