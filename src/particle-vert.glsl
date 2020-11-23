@@ -3,6 +3,9 @@
 in vec4 a_position;
 uniform sampler2D u_texture;
 out highp vec2 v_texCoord;
+out highp vec2 v_vel;
+
+uniform float u_time;
 
 vec2 encode(float value) {
   // value is between -1 and 1
@@ -22,6 +25,7 @@ float decode(vec2 channels) {
 }
 
 void main() {
+  v_texCoord = vec2((a_position.x+1.0)/2.0, (a_position.y+1.0)/2.0);
 
   int width= 40;
   int height= 40;
@@ -35,6 +39,7 @@ void main() {
 
   gl_Position.y = a_position.y * (1.0/float(height))* 0.2;
   gl_Position.x = a_position.x * (1.0/float(width)*2.0 * length(vel));
+  gl_Position.z = a_position.z*0.4;
   gl_Position.w = 1.0;
 
   vec2 normV = normalize(vel);
@@ -43,5 +48,16 @@ void main() {
   gl_Position.x += (x-0.5)*2.0;
   gl_Position.y += (y-0.5)*2.0;
 
-  v_texCoord = vec2((a_position.x+1.0)/2.0, (a_position.y+1.0)/2.0);
+  float thetaY = 3.14159/8.0;
+  float thetaX = 3.14159/4.0;
+  // gl_Position.xyz = mat3(cos(thetaX),0,sin(thetaX),  0,1,0,   -sin(thetaX), 0, cos(thetaX)) * gl_Position.xyz;
+  gl_Position.xyz = mat3(cos(thetaX),sin(thetaX),0,-sin(thetaX),cos(thetaX),0,0,0,1) * gl_Position.xyz;
+  gl_Position.xyz = mat3(0,cos(thetaY),-sin(thetaY),1,0,0, 0,sin(thetaY),cos(thetaY)) * gl_Position.xyz;
+  
+  gl_Position.xyz *= 0.65;
+  
+  v_vel = vel;
+  // float theta = sin(u_time*0.001);//-3.14159/2.0;
+  // gl_Position.xyz = mat3(1,0,0,0,cos(theta),-sin(theta),0,sin(theta),cos(theta)) * gl_Position.xyz;
+
 }

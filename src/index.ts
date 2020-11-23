@@ -110,10 +110,10 @@ const particlePosition = gl.createBuffer();
 {
   gl.bindBuffer(gl.ARRAY_BUFFER, particlePosition);
 
-  const positions = [ //xy...
-        /* pos */0,1,
-        /* pos */0,-1,
-        /* pos */1,0
+  const positions = [ //xyz...
+        /* pos */0,1,0,
+        /* pos */0,-1,0,
+        /* pos */1,0,1
  
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
@@ -127,7 +127,7 @@ const particleVao = gl.createVertexArray();
 
     gl.bindBuffer(gl.ARRAY_BUFFER, particlePosition);
     {
-        const size = 2;          // 2 components per iteration
+        const size = 3;          // 3 components per iteration
         const type = gl.FLOAT;   // the data is 32bit floats
         const normalize = false; // don't normalize the data
         const stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
@@ -280,7 +280,7 @@ function drawNow(time: number) {
             // gl.drawElements(primitiveType, count, indexType, offset);
             // gl.drawArraysInstanced(gl.TRIANGLES,/* offset */0, /* verts per instance */3, /* instances */numTriangles);
             // gl.drawElementsInstanced(gl.TRIANGLES, count, indexType, 0, 255*255);
-            gl.drawArraysInstanced(gl.TRIANGLES, 0, count, 255*255);
+            gl.drawArraysInstanced(gl.TRIANGLES, 0, count, 40*40/* 255*255 */);
 
             // gl.drawArraysInstanced(gl.TRIANGLES,
             //     /* offset */0,
