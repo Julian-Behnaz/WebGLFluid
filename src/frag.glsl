@@ -2,7 +2,7 @@
  
 in highp vec2 v_texCoord;
 
-uniform sampler2D u_texture;
+// uniform sampler2D u_texture;
 
 // fragment shaders don't have a default precision so we need
 // to pick one. highp is a good default. It means "high precision"
@@ -34,21 +34,26 @@ float decode(vec2 channels) {
 
 
 void main() {  
-  vec4 color = texture(u_texture, v_texCoord);
+  // vec4 color = texture(u_texture, v_texCoord);
 
-  float particleIdx = (v_texCoord.y*255.0)*255.0 + (v_texCoord.x*255.0);
+  // float particleIdx = (v_texCoord.y*255.0)*255.0 + (v_texCoord.x*255.0);
 
   // vec2 pos = vec2(decode(color.rg), decode(color.ba));
 
   // float l = length(pos);
-  float tl = length(v_texCoord-vec2(0.5,0.5));
-  vec2 tx = (v_texCoord-vec2(0.5,0.5))*2.0;
+  // float tl = length(v_texCoord-vec2(0.5,0.5));
+  // vec2 tx = (v_texCoord-vec2(0.5,0.5))*2.0;
   // pos = tx + sin(tl*2.5 + (u_time*0.001))*0.1;
 
   // float theta = /* u_time*0.001+ */ v_texCoord.x* v_texCoord.x+ v_texCoord.y*v_texCoord.x*20.0;
   // vec2 vel = mat2(cos(theta), -sin(theta), sin(theta), cos(theta)) * vec2(1.0,0);
-  vec2 vel= vec2(sin(2.0*3.14159* v_texCoord.y+5.3+u_time*0.001), sin(2.0*3.14159* v_texCoord.x+u_time*0.001));
+  // vec2 vel= vec2(sin(2.0*3.14159* v_texCoord.y+5.3+u_time*0.001), sin(2.0*3.14159* v_texCoord.x+u_time*0.001));
+    // vec2 vel= vec2(sin(2.0*3.14159* v_texCoord.y+5.3), sin(2.0*3.14159* v_texCoord.x));
+  // vec2 vel= vec2(1.0, sin(2.0*3.14159*v_texCoord.x/0.5));
   // vec2 vel = vec2(sin(u_time*0.01), sin(u_time*0.01));
+  
+  vec2 vel = vec2(sin(2.0*3.14159* v_texCoord.y+5.3), sin(2.0*3.14159* v_texCoord.x));
+  // vel = normalize(vel) * (length(vec2(1.0)) - length(vel));
   
   outColor = vec4(encode(vel.x), encode(vel.y));
 }

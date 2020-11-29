@@ -38,7 +38,7 @@ void main() {
   gl_Position.w = 1.0;
 
   vec2 normV = normalize(vel);
-  gl_Position.xy = mat2(normV.x, -normV.y, normV.y, normV.x) * gl_Position.xy;
+  gl_Position.xy = mat2(normV.x, normV.y, -normV.y, normV.x) * gl_Position.xy;
 
   gl_Position.x += (x-0.5)*2.0;
   gl_Position.y += (y-0.5)*2.0;

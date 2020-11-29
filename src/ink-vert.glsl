@@ -2,8 +2,6 @@
  
 in vec4 a_position;
 
-// uniform float u_time;
-
 out highp vec2 v_texCoord;
 
 void main() {
